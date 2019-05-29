@@ -32,12 +32,12 @@ public static void Tictac{
           ocount++;
       }
     }
-    if(xcount ==3)
+    if(xcount ==3)  
       system.out.println("Player one wins!");
       i = 9;
     else if(ocount ==3)
       system.out.println("Player two wins!");
-      i = 9;
+      i = 9; 
     playercount ++;       
    }
 }
