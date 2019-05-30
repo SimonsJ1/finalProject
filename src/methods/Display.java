@@ -47,8 +47,38 @@ public class Display extends JPanel {
 		JButton buttonAgain = createButton(50, 520, 120, 30, "Play Again?", false);
 	    buttonAgain.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
-	    		// **** reset all board to empty and all data to empty
+	    		// reset all board to empty and all data to empty
 	    		// set all to invisible
+	    		gameData = new GameData();
+	    		gamePieces.colorX1 = transparent;
+	    		gamePieces.colorO1 = transparent;
+	    		gamePieces.colorInnerO1 = transparent;
+	    		gamePieces.colorX2 = transparent;
+	    		gamePieces.colorO2 = transparent;
+	    		gamePieces.colorInnerO2 = transparent;
+	    		gamePieces.colorX3 = transparent;
+	    		gamePieces.colorO3 = transparent;
+	    		gamePieces.colorInnerO3 = transparent;
+	    		gamePieces.colorX4 = transparent;
+	    		gamePieces.colorO4 = transparent;
+	    		gamePieces.colorInnerO4 = transparent;
+	    		gamePieces.colorX5 = transparent;
+	    		gamePieces.colorO5 = transparent;
+	    		gamePieces.colorInnerO5 = transparent;
+	    		gamePieces.colorX6 = transparent;
+	    		gamePieces.colorO6 = transparent;
+	    		gamePieces.colorInnerO6 = transparent;
+	    		gamePieces.colorX7 = transparent;
+	    		gamePieces.colorO7 = transparent;
+	    		gamePieces.colorInnerO7 = transparent;
+	    		gamePieces.colorX8 = transparent;
+	    		gamePieces.colorO8 = transparent;
+	    		gamePieces.colorInnerO8 = transparent;
+	    		gamePieces.colorX9 = transparent;
+	    		gamePieces.colorO9 = transparent;
+	    		gamePieces.colorInnerO9 = transparent;
+	    		// repeat for all 9
+	    		
 	    		repaint();
 	    	};
 	    });
@@ -290,8 +320,8 @@ public class Display extends JPanel {
 	    	    	if (gameData.isXTurn()) {
 	    	    		// COULD REPLACE WITH VISIBLE METHOD CALLS
 	    	    		// ALSO DECIDE ON COLORS YOU WANT FOR X's and O's
-	    	    		gamePieces.colorX1 = Color.RED;
-	    	    		gamePieces.colorO1 = transparent;
+	    	    		gamePieces.colorX9 = Color.RED;
+	    	    		gamePieces.colorO9 = transparent;
 	    	    		gamePieces.colorInnerO9 = transparent;
 	    	    	}
 	    	    	else {
