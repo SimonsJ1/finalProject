@@ -82,6 +82,7 @@ public class GameData {
 		ocount = 0;
 		winner = 0;
 		
+		// check horizontal
 	    for(int k=0; k<3; k++){
 	       for(int j=0; j<3; j++){  //checks for a winner
 	          if (gameValues[k][j] == 1)
@@ -107,8 +108,70 @@ public class GameData {
     	   }
 	    }
 
-       // *****need to repeat everything 2 once checking all vertical then diagonial;
-	   // *****check for tie game. 
+	    // check vertical
+	    for(int k=0; k<3; k++){
+	    	for(int j=0; j<3; j++){  //checks for a winner
+		        if (gameValues[j][k] == 1)  // switch j and k
+		        	xcount++;
+		         else if (gameValues[j][k] == 2)// switch j and k
+		            ocount++;
+		    }
+		       
+	    	if(xcount == 3) {
+		   	   // if 3 1 or X acrosss WIN
+		   	   winner = 1;
+		   	   return true;
+	    	}
+	        else if(ocount ==3) {
+	   		   // if 3 2 or O acrosss WIN
+	   		   winner = 2;
+	   		   return true;
+	        }
+	    	else {
+	    	   // else reset and check next row
+	    	   xcount = 0;
+	    	   ocount = 0;
+	    	}
+		}
+	    
+	    // check diagonial
+	    if (gameValues[0][0] == 1 &&
+	        gameValues[1][1] == 1 &&
+	        gameValues[2][2] == 1) {
+		   winner = 1;
+		   return true;
+	    }
+    	if (gameValues[0][0] == 2 &&
+    	    gameValues[1][1] == 2 &&
+    	    gameValues[2][2] == 2) {
+	   	   winner = 2;
+	   	   return true;
+    	}
+    	if (gameValues[0][2] == 1 &&
+    	    gameValues[1][1] == 1 &&
+    	    gameValues[2][0] == 1) {
+	   	   winner = 1;
+	   	   return true;
+    	}
+    	if (gameValues[0][2] == 2&&
+    	    gameValues[1][1] == 2 &&
+    	    gameValues[2][0] == 2) {
+	   	   winner = 2;
+	   	   return true;
+    	}
+
+	    // check for tie game. 
+	    for(int k=0; k<3; k++){
+	       for(int j=0; j<3; j++){  //checks for a winner
+	          if (gameValues[k][j] > 0)
+	             xcount++;
+	       }
+	       
+	       if(xcount == 9) {
+	    	   winner = 3;
+	    	   return true;
+	       }
+	    }
 
 	    return false;
 	}
