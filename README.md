@@ -52,7 +52,7 @@ This code is interesting because I had to learn to use action handler. I had to 
 
 ## Acknowledgments
 
-I would like to thank Stackoverflow.com
-I would like to thank Diana of YouTube https://www.youtube.com/watch?v=zG8CrISqPpU
-I would like to thank Dr. R.
-I would like to thank my dad
+* I would like to thank Stackoverflow.com
+* I would like to thank Diana of YouTube https://www.youtube.com/watch?v=zG8CrISqPpU
+* I would like to thank Dr. R.
+* I would like to thank my dad
