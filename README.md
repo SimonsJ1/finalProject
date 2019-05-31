@@ -2,7 +2,7 @@
 
 # Tic Tac Toe
 
-The game I am making is tic tac toe. The two players will take turns clicking the board, which will add an x or an O. If a player gets three in a row, they win.
+The game I am making is tic tac toe. The two players will take turns clicking the board, which will add an x or an O. If a player gets three in a row, they win.  Code is in the src/methods directory not the tictactoe directory.
 
 ### Difficulties or opportunities you encountered along the way.
 
