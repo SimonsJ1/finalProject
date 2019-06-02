@@ -7,6 +7,7 @@ package methods;
 import java.awt.*;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 import javax.swing.*;
@@ -74,10 +75,7 @@ public class Display extends JPanel {
 	    		gamePieces.colorX8 = transparent;
 	    		gamePieces.colorO8 = transparent;
 	    		gamePieces.colorInnerO8 = transparent;
-	    		gamePieces.colorX9 = transparent;
-	    		gamePieces.colorO9 = transparent;
-	    		gamePieces.colorInnerO9 = transparent;
-	    		// repeat for all 9
+	    		gamePieces.set9PiecesTransparent();
 	    		
 	    		repaint();
 	    	};
@@ -107,6 +105,7 @@ public class Display extends JPanel {
 	    	    	gameData.setXTurn();			
 	    	    	label.setText(gameData.getDialog());
 	    	    	//update data with marked square and check for win or tie
+
 	    	    	repaint();
 	    	    };
 	    	};
@@ -316,25 +315,14 @@ public class Display extends JPanel {
 	    button9.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		// check if marked - if so do not change.
-	    	    if (!gameData.isGameValueSet(2, 2)) {		
+	    	    if (!gameData.isGameValueSet(2, 2)) {
 	    	    	if (gameData.isXTurn()) {
-	    	    		// COULD REPLACE WITH VISIBLE METHOD CALLS
-	    	    		// ALSO DECIDE ON COLORS YOU WANT FOR X's and O's
-	    	    		gamePieces.colorX9 = Color.RED;
-	    	    		gamePieces.colorO9 = transparent;
-	    	    		gamePieces.colorInnerO9 = transparent;
+	    	    		gamePieces.setX9PieceVisible();    	    		
 	    	    	}
 	    	    	else {
-	    	    		// COULD REPLACE WITH VISIBLE METHOD CALLS
-	    	    		gamePieces.colorX9 = transparent;
-	    	    		gamePieces.colorO9 = Color.RED;
-	    	    		gamePieces.colorInnerO9 = Color.WHITE;
+	    	    		gamePieces.setO9PieceVisible();
 	    	    	}
-	    	    	gameData.setGameValue(2,2) ;
-	    	    	gameData.checkGameState();
-	    	    	gameData.setXTurn();			
-	    	    	label.setText(gameData.getDialog());
-	    	    	//update data with marked square and check for win or tie
+	    	    	setPieceData(2, 2);
 	    	    	repaint();
 	    	    };
 	    	};
@@ -362,17 +350,13 @@ public class Display extends JPanel {
       gamePieces.drawO(g);
 	}
 
-	// CREATE ADDITIONAL VISIBLE FOR ALL 9 BOXES
+	public void setPieceData(int row, int col) {
+    	gameData.setGameValue(row, col) ;
+    	gameData.checkGameState();
+    	gameData.setXTurn();			
+    	label.setText(gameData.getDialog());
+	}
 	
-	public void setO5PieceVisible() {
-	  gamePieces.colorO5 = Color.BLUE;
-	  gamePieces.colorInnerO5 = Color.WHITE;
-	}
-
-	public void setX1PieceVisible() {
-	  gamePieces.colorX1 = Color.RED;
-	}
-
 	public JButton createButton(int x, int y, int length, int height, String text, boolean borderOverride) {
 		JButton button = null;
 		

@@ -107,4 +107,19 @@ public class GamePieces extends JPanel {
 		window.setColor(innerColor);
 		window.fillOval(130  + (horizontalOffset * col), 120 + (verticalOffset * row), 60, 60);
 	}
+	
+	public void set9PiecesTransparent() {
+		colorX9 = transparent;
+		colorO9 = transparent;
+		colorInnerO9 = transparent;
+	}
+
+	public void setO9PieceVisible() {
+		colorO9 = Color.RED;
+		colorInnerO9 = Color.WHITE;
+	}
+
+	public void setX9PieceVisible() {
+		colorX9 = Color.RED;
+	}
 }

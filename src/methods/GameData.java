@@ -83,56 +83,13 @@ public class GameData {
 		winner = 0;
 		
 		// check horizontal
-	    for(int k=0; k<3; k++){
-	       for(int j=0; j<3; j++){  //checks for a winner
-	          if (gameValues[k][j] == 1)
-	             xcount++;
-	          else if (gameValues[k][j] == 2)
-	             ocount++;
-	       }
-	       
-	       if(xcount == 3) {
-	    	   // if 3 1 or X acrosss WIN
-	    	   winner = 1;
-	    	   return true;
-	       }
-    	   else if(ocount ==3) {
-    		   // if 3 2 or O acrosss WIN
-    		   winner = 2;
-    		   return true;
-    	   }
-    	   else {
-    		   // else reset and check next row
-    		   xcount = 0;
-    		   ocount = 0;
-    	   }
-	    }
-
+		if (checkHorizontalWin())
+			return true;
+			
 	    // check vertical
-	    for(int k=0; k<3; k++){
-	    	for(int j=0; j<3; j++){  //checks for a winner
-		        if (gameValues[j][k] == 1)  // switch j and k
-		        	xcount++;
-		         else if (gameValues[j][k] == 2)// switch j and k
-		            ocount++;
-		    }
-		       
-	    	if(xcount == 3) {
-		   	   // if 3 1 or X acrosss WIN
-		   	   winner = 1;
-		   	   return true;
-	    	}
-	        else if(ocount ==3) {
-	   		   // if 3 2 or O acrosss WIN
-	   		   winner = 2;
-	   		   return true;
-	        }
-	    	else {
-	    	   // else reset and check next row
-	    	   xcount = 0;
-	    	   ocount = 0;
-	    	}
-		}
+		if (checkVerticalWin())
+			return true;
+		
 	    
 	    // check diagonial
 	    if (gameValues[0][0] == 1 &&
@@ -175,4 +132,70 @@ public class GameData {
 
 	    return false;
 	}
-}
+
+	public boolean checkHorizontalWin() {
+		xcount = 0;
+		ocount = 0;
+		winner = 0;
+		
+	    for(int k=0; k<3; k++){
+	       for(int j=0; j<3; j++){  //checks for a winner
+	          if (gameValues[k][j] == 1)
+	             xcount++;
+	          else if (gameValues[k][j] == 2)
+	             ocount++;
+	       }
+	       
+	       if(xcount == 3) {
+	    	   // if 3 1 or X acrosss WIN
+	    	   winner = 1;
+	    	   return true;
+	       }
+    	   else if(ocount ==3) {
+    		   // if 3 2 or O acrosss WIN
+    		   winner = 2;
+    		   return true;
+    	   }
+    	   else {
+    		   // else reset and check next row
+    		   xcount = 0;
+    		   ocount = 0;
+    	   }
+	    }
+
+	    return false;
+	}
+
+	public boolean checkVerticalWin() {
+		xcount = 0;
+		ocount = 0;
+		winner = 0;
+		
+		for(int k=0; k<3; k++){
+	    	for(int j=0; j<3; j++){  //checks for a winner
+		        if (gameValues[j][k] == 1)  // switch j and k
+		        	xcount++;
+		         else if (gameValues[j][k] == 2)// switch j and k
+		            ocount++;
+		    }
+		       
+	    	if(xcount == 3) {
+		   	   // if 3 1 or X acrosss WIN
+		   	   winner = 1;
+		   	   return true;
+	    	}
+	        else if(ocount ==3) {
+	   		   // if 3 2 or O acrosss WIN
+	   		   winner = 2;
+	   		   return true;
+	        }
+	    	else {
+	    	   // else reset and check next row
+	    	   xcount = 0;
+	    	   ocount = 0;
+	    	}
+		}
+		
+		return false;
+	}
+ }
