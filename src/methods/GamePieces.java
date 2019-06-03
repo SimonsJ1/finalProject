@@ -107,6 +107,127 @@ public class GamePieces extends JPanel {
 		window.setColor(innerColor);
 		window.fillOval(130  + (horizontalOffset * col), 120 + (verticalOffset * row), 60, 60);
 	}
+	public void set1PiecesTransparent() {
+		colorX1 = transparent;
+		colorO1 = transparent;
+		colorInnerO1 = transparent;
+	}
+
+	public void setO1PieceVisible() {
+		colorO1 = Color.RED;
+		colorInnerO1 = Color.WHITE;
+	}
+
+	public void setX1PieceVisible() {
+		colorX1 = Color.RED;		
+	}
+	
+	public void set2PiecesTransparent() {
+		colorX2 = transparent;
+		colorO2 = transparent;
+		colorInnerO2 = transparent;
+	}
+
+	public void setO2PieceVisible() {
+		colorO2 = Color.RED;
+		colorInnerO2 = Color.WHITE;
+	}
+
+	public void setX2PieceVisible() {
+		colorX2 = Color.RED;		
+	}
+
+	
+	public void set3PiecesTransparent() {
+		colorX3 = transparent;
+		colorO3 = transparent;
+		colorInnerO3 = transparent;
+	}
+
+	public void setO3PieceVisible() {
+		colorO3 = Color.RED;
+		colorInnerO3 = Color.WHITE;
+	}
+
+	public void setX3PieceVisible() {
+		colorX3 = Color.RED;		
+	}
+
+	public void set4PiecesTransparent() {
+		colorX4 = transparent;
+		colorO4 = transparent;
+		colorInnerO4 = transparent;
+	}
+
+	public void setO4PieceVisible() {
+		colorO4 = Color.RED;
+		colorInnerO4 = Color.WHITE;
+	}
+
+	public void setX4PieceVisible() {
+		colorX4 = Color.RED;		
+	}
+	
+	public void set5PiecesTransparent() {
+		colorX5 = transparent;
+		colorO5 = transparent;
+		colorInnerO5 = transparent;
+	}
+
+	public void setO5PieceVisible() {
+		colorO5 = Color.RED;
+		colorInnerO5 = Color.WHITE;
+	}
+
+	public void setX5PieceVisible() {
+		colorX5 = Color.RED;		
+	}
+	
+	public void set6PiecesTransparent() {
+		colorX6 = transparent;
+		colorO6 = transparent;
+		colorInnerO6 = transparent;
+	}
+
+	public void setO6PieceVisible() {
+		colorO6 = Color.RED;
+		colorInnerO6 = Color.WHITE;
+	}
+
+	public void setX6PieceVisible() {
+		colorX6 = Color.RED;
+		
+	}
+	public void set7PiecesTransparent() {
+		colorX7 = transparent;
+		colorO7 = transparent;
+		colorInnerO7 = transparent;
+	}
+
+	public void setO7PieceVisible() {
+		colorO7 = Color.RED;
+		colorInnerO7 = Color.WHITE;
+	}
+
+	public void setX7PieceVisible() {
+		colorX7 = Color.RED;
+	}
+	
+	public void set8PiecesTransparent() {
+		colorX8 = transparent;
+		colorO8 = transparent;
+		colorInnerO8 = transparent;
+	}
+
+	public void setO8PieceVisible() {
+		colorO8 = Color.RED;
+		colorInnerO8 = Color.WHITE;
+	}
+
+	public void setX8PieceVisible() {
+		colorX8 = Color.RED;
+	}
+
 	
 	public void set9PiecesTransparent() {
 		colorX9 = transparent;

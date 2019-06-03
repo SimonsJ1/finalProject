@@ -92,43 +92,12 @@ public class GameData {
 		
 	    
 	    // check diagonial
-	    if (gameValues[0][0] == 1 &&
-	        gameValues[1][1] == 1 &&
-	        gameValues[2][2] == 1) {
-		   winner = 1;
-		   return true;
-	    }
-    	if (gameValues[0][0] == 2 &&
-    	    gameValues[1][1] == 2 &&
-    	    gameValues[2][2] == 2) {
-	   	   winner = 2;
-	   	   return true;
-    	}
-    	if (gameValues[0][2] == 1 &&
-    	    gameValues[1][1] == 1 &&
-    	    gameValues[2][0] == 1) {
-	   	   winner = 1;
-	   	   return true;
-    	}
-    	if (gameValues[0][2] == 2&&
-    	    gameValues[1][1] == 2 &&
-    	    gameValues[2][0] == 2) {
-	   	   winner = 2;
-	   	   return true;
-    	}
-
+		if (checkDiagonalWin())
+			return true;
+		
 	    // check for tie game. 
-	    for(int k=0; k<3; k++){
-	       for(int j=0; j<3; j++){  //checks for a winner
-	          if (gameValues[k][j] > 0)
-	             xcount++;
-	       }
-	       
-	       if(xcount == 9) {
-	    	   winner = 3;
-	    	   return true;
-	       }
-	    }
+		if (checkTie())
+			return true;
 
 	    return false;
 	}
@@ -196,6 +165,59 @@ public class GameData {
 	    	}
 		}
 		
+		return false;
+	}
+	
+	public boolean checkDiagonalWin() {
+		xcount = 0;
+		ocount = 0;
+		winner = 0;
+		
+		if (gameValues[0][0] == 1 &&
+	        gameValues[1][1] == 1 &&
+	        gameValues[2][2] == 1) {
+		   winner = 1;
+		   return true;
+	    }
+		if (gameValues[0][0] == 2 &&
+    	    gameValues[1][1] == 2 &&
+    	    gameValues[2][2] == 2) {
+	   	   winner = 2;
+	   	   return true;
+    	}
+	    if (gameValues[0][2] == 1 &&
+    	   gameValues[1][1] == 1 &&
+    	   gameValues[2][0] == 1) {
+	   	   winner = 1;
+	   	   return true;
+    	}
+	    if (gameValues[0][2] == 2&&
+    	    gameValues[1][1] == 2 &&
+    	    gameValues[2][0] == 2) {
+	   	   winner = 2;
+	   	   return true;
+    	}
+
+	    return false;
+    }
+	
+	public boolean checkTie() {
+		xcount = 0;
+		ocount = 0;
+		winner = 0;
+
+		for(int k=0; k<3; k++){
+	       for(int j=0; j<3; j++){  //checks for a winner
+	          if (gameValues[k][j] > 0)
+	             xcount++;
+	       }
+	       
+	       if(xcount == 9) {
+	    	   winner = 3;
+	    	   return true;
+	       }
+	    }
+	
 		return false;
 	}
  }

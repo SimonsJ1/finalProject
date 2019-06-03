@@ -51,32 +51,15 @@ public class Display extends JPanel {
 	    		// reset all board to empty and all data to empty
 	    		// set all to invisible
 	    		gameData = new GameData();
-	    		gamePieces.colorX1 = transparent;
-	    		gamePieces.colorO1 = transparent;
-	    		gamePieces.colorInnerO1 = transparent;
-	    		gamePieces.colorX2 = transparent;
-	    		gamePieces.colorO2 = transparent;
-	    		gamePieces.colorInnerO2 = transparent;
-	    		gamePieces.colorX3 = transparent;
-	    		gamePieces.colorO3 = transparent;
-	    		gamePieces.colorInnerO3 = transparent;
-	    		gamePieces.colorX4 = transparent;
-	    		gamePieces.colorO4 = transparent;
-	    		gamePieces.colorInnerO4 = transparent;
-	    		gamePieces.colorX5 = transparent;
-	    		gamePieces.colorO5 = transparent;
-	    		gamePieces.colorInnerO5 = transparent;
-	    		gamePieces.colorX6 = transparent;
-	    		gamePieces.colorO6 = transparent;
-	    		gamePieces.colorInnerO6 = transparent;
-	    		gamePieces.colorX7 = transparent;
-	    		gamePieces.colorO7 = transparent;
-	    		gamePieces.colorInnerO7 = transparent;
-	    		gamePieces.colorX8 = transparent;
-	    		gamePieces.colorO8 = transparent;
-	    		gamePieces.colorInnerO8 = transparent;
+	    		gamePieces.set1PiecesTransparent();
+	    		gamePieces.set2PiecesTransparent();
+	    		gamePieces.set3PiecesTransparent();
+	    		gamePieces.set4PiecesTransparent();
+	    		gamePieces.set5PiecesTransparent();
+	    		gamePieces.set6PiecesTransparent();
+	    		gamePieces.set7PiecesTransparent();
+	    		gamePieces.set8PiecesTransparent();
 	    		gamePieces.set9PiecesTransparent();
-	    		
 	    		repaint();
 	    	};
 	    });
@@ -88,24 +71,12 @@ public class Display extends JPanel {
 	    		// check if marked - if so do not change.
 	    	    if (!gameData.isGameValueSet(0, 0)) {		
 	    	    	if (gameData.isXTurn()) {
-	    	    		// COULD REPLACE WITH VISIBLE METHOD CALLS
-	    	    		// ALSO DECIDE ON COLORS YOU WANT FOR X's and O's
-	    	    		gamePieces.colorX1 = Color.RED;
-	    	    		gamePieces.colorO1 = transparent;
-	    	    		gamePieces.colorInnerO1 = transparent;
+	    	    		gamePieces.setX1PieceVisible();    	    		
 	    	    	}
 	    	    	else {
-	    	    		// COULD REPLACE WITH VISIBLE METHOD CALLS
-	    	    		gamePieces.colorX1 = transparent;
-	    	    		gamePieces.colorO1 = Color.RED;
-	    	    		gamePieces.colorInnerO1 = Color.WHITE;
+	    	    		gamePieces.setO1PieceVisible();
 	    	    	}
-	    	    	gameData.setGameValue(0,0) ;
-	    	    	gameData.checkGameState();
-	    	    	gameData.setXTurn();			
-	    	    	label.setText(gameData.getDialog());
-	    	    	//update data with marked square and check for win or tie
-
+	    	    	setPieceData(0, 0);
 	    	    	repaint();
 	    	    };
 	    	};
@@ -117,20 +88,12 @@ public class Display extends JPanel {
 	    		
 	    	    if (!gameData.isGameValueSet(0, 1)) {		
 	    	    	if (gameData.isXTurn()) {
-	    	    		gamePieces.colorX2 = Color.RED;
-	    	    		gamePieces.colorO2 = transparent;
-	    	    		gamePieces.colorInnerO2 = transparent;
+	    	    		gamePieces.setX2PieceVisible();    	    		
 	    	    	}
 	    	    	else {
-	    	    		gamePieces.colorX2 = transparent;
-	    	    		gamePieces.colorO2 = Color.RED;
-	    	    		gamePieces.colorInnerO2 = Color.WHITE;
+	    	    		gamePieces.setO2PieceVisible();
 	    	    	}
-	    	    	gameData.setGameValue(0,1) ;
-	    	    	gameData.checkGameState();
-	    	    	gameData.setXTurn();			
-	    	    	label.setText(gameData.getDialog());
-	    	    	//update data with marked square and check for win or tie
+	    	    	setPieceData(0, 1);
 	    	    	repaint();
 	    	    };
 	    	};
@@ -143,23 +106,12 @@ public class Display extends JPanel {
 	    		// check if marked - if so do not change.
 	    	    if (!gameData.isGameValueSet(0, 2)) {		
 	    	    	if (gameData.isXTurn()) {
-	    	    		// COULD REPLACE WITH VISIBLE METHOD CALLS
-	    	    		// ALSO DECIDE ON COLORS YOU WANT FOR X's and O's
-	    	    		gamePieces.colorX3 = Color.RED;
-	    	    		gamePieces.colorO3 = transparent;
-	    	    		gamePieces.colorInnerO3 = transparent;
+	    	    		gamePieces.setX3PieceVisible();    	    		
 	    	    	}
 	    	    	else {
-	    	    		// COULD REPLACE WITH VISIBLE METHOD CALLS
-	    	    		gamePieces.colorX3 = transparent;
-	    	    		gamePieces.colorO3 = Color.RED;
-	    	    		gamePieces.colorInnerO3 = Color.WHITE;
+	    	    		gamePieces.setO3PieceVisible();
 	    	    	}
-	    	    	gameData.setGameValue(0,2) ;
-	    	    	gameData.checkGameState();
-	    	    	gameData.setXTurn();			
-	    	    	label.setText(gameData.getDialog());
-	    	    	//update data with marked square and check for win or tie
+	    	    	setPieceData(0, 2);
 	    	    	repaint();
 	    	    };
 	    	};
@@ -172,23 +124,12 @@ public class Display extends JPanel {
 	    		// check if marked - if so do not change.
 	    	    if (!gameData.isGameValueSet(1, 0)) {		
 	    	    	if (gameData.isXTurn()) {
-	    	    		// COULD REPLACE WITH VISIBLE METHOD CALLS
-	    	    		// ALSO DECIDE ON COLORS YOU WANT FOR X's and O's
-	    	    		gamePieces.colorX4 = Color.RED;
-	    	    		gamePieces.colorO4 = transparent;
-	    	    		gamePieces.colorInnerO4 = transparent;
+	    	    		gamePieces.setX4PieceVisible();    	    		
 	    	    	}
 	    	    	else {
-	    	    		// COULD REPLACE WITH VISIBLE METHOD CALLS
-	    	    		gamePieces.colorX4 = transparent;
-	    	    		gamePieces.colorO4 = Color.RED;
-	    	    		gamePieces.colorInnerO4 = Color.WHITE;
+	    	    		gamePieces.setO4PieceVisible();
 	    	    	}
-	    	    	gameData.setGameValue(1,0) ;
-	    	    	gameData.checkGameState();
-	    	    	gameData.setXTurn();			
-	    	    	label.setText(gameData.getDialog());
-	    	    	//update data with marked square and check for win or tie
+	    	    	setPieceData(1, 0);
 	    	    	repaint();
 	    	    };
 	    	};
@@ -201,23 +142,12 @@ public class Display extends JPanel {
 	    		// check if marked - if so do not change.
 	    	    if (!gameData.isGameValueSet(1, 1)) {		
 	    	    	if (gameData.isXTurn()) {
-	    	    		// COULD REPLACE WITH VISIBLE METHOD CALLS
-	    	    		// ALSO DECIDE ON COLORS YOU WANT FOR X's and O's
-	    	    		gamePieces.colorX5 = Color.RED;
-	    	    		gamePieces.colorO5 = transparent;
-	    	    		gamePieces.colorInnerO5 = transparent;
+	    	    		gamePieces.setX5PieceVisible();    	    		
 	    	    	}
 	    	    	else {
-	    	    		// COULD REPLACE WITH VISIBLE METHOD CALLS
-	    	    		gamePieces.colorX5 = transparent;
-	    	    		gamePieces.colorO5 = Color.RED;
-	    	    		gamePieces.colorInnerO5 = Color.WHITE;
+	    	    		gamePieces.setO5PieceVisible();
 	    	    	}
-	    	    	gameData.setGameValue(1,1) ;
-	    	    	gameData.checkGameState();
-	    	    	gameData.setXTurn();			
-	    	    	label.setText(gameData.getDialog());
-	    	    	//update data with marked square and check for win or tie
+	    	    	setPieceData(1, 1);
 	    	    	repaint();
 	    	    };
 	    	};
@@ -230,23 +160,12 @@ public class Display extends JPanel {
 	    		// check if marked - if so do not change.
 	    	    if (!gameData.isGameValueSet(1, 2)) {		
 	    	    	if (gameData.isXTurn()) {
-	    	    		// COULD REPLACE WITH VISIBLE METHOD CALLS
-	    	    		// ALSO DECIDE ON COLORS YOU WANT FOR X's and O's
-	    	    		gamePieces.colorX6 = Color.RED;
-	    	    		gamePieces.colorO6 = transparent;
-	    	    		gamePieces.colorInnerO6 = transparent;
+	    	    		gamePieces.setX6PieceVisible();    	    		
 	    	    	}
 	    	    	else {
-	    	    		// COULD REPLACE WITH VISIBLE METHOD CALLS
-	    	    		gamePieces.colorX6 = transparent;
-	    	    		gamePieces.colorO6 = Color.RED;
-	    	    		gamePieces.colorInnerO6 = Color.WHITE;
+	    	    		gamePieces.setO6PieceVisible();
 	    	    	}
-	    	    	gameData.setGameValue(1,2) ;
-	    	    	gameData.checkGameState();
-	    	    	gameData.setXTurn();			
-	    	    	label.setText(gameData.getDialog());
-	    	    	//update data with marked square and check for win or tie
+	    	    	setPieceData(1, 2);
 	    	    	repaint();
 	    	    };
 	    	};
@@ -259,25 +178,14 @@ public class Display extends JPanel {
 	    		// check if marked - if so do not change.
 	    	    if (!gameData.isGameValueSet(2, 0)) {		
 	    	    	if (gameData.isXTurn()) {
-	    	    		// COULD REPLACE WITH VISIBLE METHOD CALLS
-	    	    		// ALSO DECIDE ON COLORS YOU WANT FOR X's and O's
-	    	    		gamePieces.colorX7 = Color.RED;
-	    	    		gamePieces.colorO7 = transparent;
-	    	    		gamePieces.colorInnerO7 = transparent;
+	    	    		gamePieces.setX7PieceVisible();    	    		
 	    	    	}
 	    	    	else {
-	    	    		// COULD REPLACE WITH VISIBLE METHOD CALLS
-	    	    		gamePieces.colorX7 = transparent;
-	    	    		gamePieces.colorO7 = Color.RED;
-	    	    		gamePieces.colorInnerO7 = Color.WHITE;
+	    	    		gamePieces.setO7PieceVisible();
 	    	    	}
-	    	    	gameData.setGameValue(2,0) ;
-	    	    	gameData.checkGameState();
-	    	    	gameData.setXTurn();			
-	    	    	label.setText(gameData.getDialog());
-	    	    	//update data with marked square and check for win or tie
+	    	    	setPieceData(2, 0);
 	    	    	repaint();
-	    	    };
+		    	};
 	    	};
 	    });
 
@@ -288,24 +196,13 @@ public class Display extends JPanel {
 	    		// check if marked - if so do not change.
 	    	    if (!gameData.isGameValueSet(2, 1)) {		
 	    	    	if (gameData.isXTurn()) {
-	    	    		// COULD REPLACE WITH VISIBLE METHOD CALLS
-	    	    		// ALSO DECIDE ON COLORS YOU WANT FOR X's and O's
-	    	    		gamePieces.colorX8 = Color.RED;
-	    	    		gamePieces.colorO8 = transparent;
-	    	    		gamePieces.colorInnerO8 = transparent;
+	    	    		gamePieces.setX8PieceVisible();    	    		
 	    	    	}
 	    	    	else {
-	    	    		// COULD REPLACE WITH VISIBLE METHOD CALLS
-	    	    		gamePieces.colorX8 = transparent;
-	    	    		gamePieces.colorO8 = Color.RED;
-	    	    		gamePieces.colorInnerO8 = Color.WHITE;
-	    	    	}
-	    	    	gameData.setGameValue(2,1) ;
-	    	    	gameData.checkGameState();
-	    	    	gameData.setXTurn();			
-	    	    	label.setText(gameData.getDialog());
-	    	    	//update data with marked square and check for win or tie
-	    	    	repaint();
+		    	    	gamePieces.setO8PieceVisible();
+		    	    }
+		    	    setPieceData(2, 1);
+		    	    repaint();
 	    	    };
 	    	};
 	    });
